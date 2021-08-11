@@ -1,28 +1,42 @@
 
+// [2, 7, 3, 9, 4]
 
-//[2, 5, 7, 9]
+function getSecondLargestElement(numbers){
 
-//[9, 7, 5, 2]
+    const unique = [];
 
-function getSecondLargest(nums) {
-    
-    const unique = []; 
 
-    for(let i= 0; i <nums.length; i++){
-        if(unique.indexOf(nums[i]) == -1){
-            unique.push(nums[i])
+    for(let i = 0; i < numbers.length; i++){
+        if(unique.indexOf(numbers[i]) == -1){
+            unique.push(numbers[i]);
         }
     }
-    console.log(unique)
-    const sortedArr = unique.sort() // [2, 5, 7, 9]
-    const secondLargestIndex = sortedArr.length - 2;
-    const secondLargestElement = sortedArr[secondLargestIndex]
-
+    const sortedArr = sort(unique);
+    const index = sortedArr.length - 2;
+    const secondLargestElement = sortedArr[index];
     return secondLargestElement;
     
+
 }
 
-const arr = [2, 5, 9, 9, 9, 7];
+function sort(arr){
 
-console.log(getSecondLargest(arr))
+    const length = arr.length
+
+    for(let i= 0; i < length; i++){
+        for(j = 0; j < length-i-1; j++){
+            if(arr[j] > arr[j+1]){
+                let temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+
+    return arr;
+
+}
+
+const arr = [ 10, 9, 9, 8, 8, 11, 8, 0, 9, 1 ];
+console.log( getSecondLargestElement(arr));
 
