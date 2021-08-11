@@ -29,7 +29,7 @@ function product(productName) {
     for(let i = 0; i < products.length; i++){
         const element = products[i];
         for(let value in element){
-            if(value == "productName" && element[value] != productName){
+            if(value == "productName" && element[value] == productName){
                 restProduct.push(element);
             }
         }
@@ -42,22 +42,22 @@ function product(productName) {
 }
 
 
-console.log(product("Microphone"))
+console.log(product("Monitor"))
 
 
 
 
-const product = {
-    productName: "Laptop",
-    productId: 01,
-    stock: 100,
-  };
+// const product = {
+//     productName: "Laptop",
+//     productId: 01,
+//     stock: 100,
+//   };
 
-  for(let property in product){
+//   for(let property in product){
       
 
-    if(property == "productName" && product[property] != "Microphone"){
-        console.log(product[property]);
-    }
+//     if(property == "productName" && product[property] != "Microphone"){
+//         console.log(product[property]);
+//     }
       
-  }
+//   }
